@@ -11,11 +11,6 @@ JINJA_ENVIRONMENT = jinja2.Environment(
     extensions=['jinja2.ext.autoescape'],
     autoescape=True)
 
-class CurveUser(object):
-    def __init__(self, user, rank):
-        self.user = user
-        self.rank = rank
-
 class MainPage(webapp2.RequestHandler):
     def get(self):
 
