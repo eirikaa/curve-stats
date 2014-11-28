@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Prometheus</title>
+    <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+</head>
+<body>
+    <div class="centered">
+        <h3>CurveStats</h3>
+        <div>The current almighty superior dildo is {{ranks[0][0]}}!</div><br />
+        {% for el in ranks %}
+            {% if el == ranks[0] %}
+                <div class="leader"><b>{{ el[0] }}: </b>{{ el[1] }}</div>
+            {% elif el == ranks[-1] %}
+                <div class="looser"><b>{{ el[0] }}: </b>{{ el[1] }}</div>
+            {% else %}
+                <div><b>{{ el[0] }}: </b>{{ el[1] }}</div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</body>
+</html>
+{% endautoescape %}
