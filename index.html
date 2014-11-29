@@ -10,15 +10,37 @@
     <div class="centered">
         <h3>CurveStats</h3>
         <div>The current almighty superior dildo is {{ranks[0][0]}}!</div><br />
-        {% for el in ranks %}
-            {% if el == ranks[0] %}
-                <div class="leader"><b>{{ el[0] }}: </b>{{ el[1] }}</div>
-            {% elif el == ranks[-1] %}
-                <div class="looser"><b>{{ el[0] }}: </b>{{ el[1] }}</div>
-            {% else %}
-                <div><b>{{ el[0] }}: </b>{{ el[1] }}</div>
-            {% endif %}
-        {% endfor %}
+        <table>
+            {% for el in ranks %}
+                <tr>
+                    {% if el == ranks[0] %}
+                        <td><span class="leader"><b>{{ el[0] }}: </b></span></td>
+                        <td>{{ el[1] }}</td>
+                        {% if el[2] < 0 %}
+                            <td style="color: red">{{ el[2] }}</td>
+                        {% else %}
+                            <td style="color: green">{{ el[2] }}</td>
+                        {% endif %}
+                    {% elif el == ranks[-1] %}
+                        <td><span class="looser"><b>{{ el[0] }}: </b></span></td>
+                        <td>{{ el[1] }}</td>
+                        {% if el[2] < 0 %}
+                            <td style="color: red">{{ el[2] }}</td>
+                        {% else %}
+                            <td style="color: green">{{ el[2] }}</td>
+                        {% endif %}
+                    {% else %}
+                        <td><b>{{ el[0] }}: </b></td>
+                        <td>{{ el[1] }}</td>
+                        {% if el[2] < 0 %}
+                            <td style="color: red">{{ el[2] }}</td>
+                        {% else %}
+                            <td style="color: green">{{ el[2] }}</td>
+                        {% endif %}
+                    {% endif %}
+                </tr>
+            {% endfor %}
+        </table>
     </div>
 </body>
 </html>

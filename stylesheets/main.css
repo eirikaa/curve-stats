@@ -17,3 +17,7 @@ body {
 .looser {
     color: red;
 }
+
+td {
+    padding-right: 30px;
+}
